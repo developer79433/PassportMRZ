@@ -2,6 +2,8 @@
  * Test harness for passport MRZ parser.
  */
 
+"use strict";
+
 function parseMRZ() {
 	var mrz, input = $("#mrz");
 	try {

@@ -3,6 +3,8 @@
  * Machine Readable Travel Document (passport).
  */
 
+"use strict";
+
 var MRZ = function(mrzText) {
 	this.text = mrzText;
 };
