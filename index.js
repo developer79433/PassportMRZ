@@ -5,16 +5,16 @@
 function parseMRZ() {
 	var mrz, input = $("#mrz");
 	try {
-		mrz = new MRZ(input.val());
+		mrz = MRZ.create(input.val());
 	} catch (e) {
 		console.log(e);
 		return;
 	}
-	$('#passportType').text(mrz.getPassportType());
+	$('#documentType').text(mrz.getDocumentType());
 	$('#issuer').text(mrz.getIssuerFull());
 	$('#lastName').text(mrz.getLastName());
 	$('#otherNames').text(mrz.getOtherNames());
-	$('#passportNumber').text(mrz.getPassportNumber());
+	$('#documentNumber').text(mrz.getDocumentNumber());
 	$('#nationality').text(mrz.getNationalityFull());
 	$('#birthDate').text(mrz.getBirthDate());
 	$('#sex').text(mrz.getSexFull());
