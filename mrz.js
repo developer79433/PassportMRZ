@@ -390,7 +390,7 @@ MRZ.prototype.countryCodeMap = {
 	"VUT": "Vanuatu",
 	"VEN": "Venezuela",
 	"VNM": "Viet Nam",
-	"VGB": "Virgin Islands (Great Britian)",
+	"VGB": "Virgin Islands (Great Britain)",
 	"VIR": "Virgin Islands (United States)",
 	"WLF": "Wallis and Futuna Islands",
 	"ESH": "Western Sahara",
