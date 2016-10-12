@@ -9,8 +9,67 @@
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-<input id="mrz" type="text" size="48" max="48" min="48" value="P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<L898902C<3UTO6908061F9406236ZE184226B<<<<<14" />
+<input id="mrz" type="text" size="90" min="48" max="90" value="P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<L898902C<3UTO6908061F9406236ZE184226B<<<<<14" />
 <button id="parse" name="parse">Parse</button>
+
+<div>
+<div class="sampleInput">
+<label for="sampleInput1">Example Type 3 (2 lines of 44 characters)</label>
+<pre id="sampleInput1">
+P&lt;UTOERIKSSON&lt;&lt;ANNA&lt;MARIA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+L898902C&lt;3UTO6908061F9406236ZE184226B&lt;&lt;&lt;&lt;&lt;14
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput2">Invalid (?) example Type 1 (3 lines of 30 characters)</label>
+<pre id="sampleInput2">
+IDAUT10000999&lt;6&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+7109094F1112315AUT&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;6
+MUSTERFRAU&lt;&lt;ISOLDE&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput3">Example Type 1 (3 lines of 30 characters)</label>
+<pre id="sampleInput3">
+IDBEL590335801485120100200&lt;&lt;&lt;&lt;
+8512017F0901015BEL&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+REINARTZ&lt;&lt;ULRIKE&lt;KATIA&lt;E&lt;&lt;&lt;&lt;&lt;&lt;
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput4">Invalid example Type 3 (2 lines, first of 44 characters, second truncated)</label>
+<pre id="sampleInput4">
+IDFRABERTHIER&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+9409923102854CORINNE&lt;&lt;&lt;&lt;&lt;&lt;&lt;6512068F4
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput5">Example Type 1 (3 lines of 30 characters)</label>
+<pre id="sampleInput5">
+IOHRV000000000000000000000&lt;&lt;&lt;&lt;
+0000000M0000000HRV&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;0
+UZORAK&lt;&lt;SPECIMEN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput6">Example Type 3 (2 lines of 44 characters)</label>
+<pre id="sampleInput6">
+P&lt;GBRJENNINGS&lt;&lt;PAUL&lt;MICHAEL&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+0123456784GBR5011025M0810050&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;00
+</pre>
+</div>
+<div class="sampleInput">
+<label for="sampleInput7">Example Type 3 (2 lines of 44 characters)</label>
+<pre id="sampleInput7">
+P&lt;HRVSPECIMEN&lt;&lt;SPECIMEN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+0070070071HRV8212258F1407019&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;06
+</pre>
+</div>
+</div>
+
+<div>
+<div class="message"></div>
+
 <table>
 <tr><th>Property</th><th>Value</th></tr>
 <tr><td>Document type</td><td id="documentType"></td></tr>
@@ -24,6 +83,7 @@
 <tr><td>Date of expiry</td><td id="expiryDate"></td></tr>
 <tr><td>Personal number</td><td id="personalNumber"></td></tr>
 </table>
+</div>
 
 </body>
 </html>
