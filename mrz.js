@@ -23,6 +23,10 @@ var MRZ = function(mrzText) {
 };
 
 MRZ.create = function(mrzText) {
+	var match = mrzText.match(/[^a-zA-Z0-9<]/);
+	if (match) {
+		throw "MRZ contains forbidden character '" + match + "' (" + match[0].charCodeAt(0) + ")";
+	}
 	if (mrzText.length === 90) {
 		return new MRZType1(mrzText);
 	} else if (mrzText.length === 88) {
@@ -31,6 +35,7 @@ MRZ.create = function(mrzText) {
 		throw "Unrecognised MRZ text (not any of the expected lengths)"
 	}
 };
+
 MRZ.prototype.getDocumentType = function() {
 	var type = this.text.substring(0, 2).replace(/<+$/, '');
 	if (type === '') {
@@ -100,7 +105,7 @@ MRZ.prototype.getNationality = function() {
 };
 MRZ.prototype.getNationalityFull = function() {
 	var nationality = this.getNationality();
-	if (nationality) {
+	if (nationality.length > 0) {
 		nationality = this.countryCodeMap[nationality];
 	}
 	if (!nationality) {
@@ -158,6 +163,13 @@ MRZ.prototype.checkSum = function(data, checkDigit) {
 MRZ.prototype.getDocumentNumber = function() {
 	return this.text.substring(this.documentNumberStartOffset, this.documentNumberEndOffset + 1).replace(/<+$/, '');
 };
+MRZ.prototype.type = undefined;
+MRZ.prototype.getType = function() {
+	return this.type;
+};
+MRZ.prototype.getTypeFull = function() {
+	return "Type " + this.getType();
+};
 
 var MRZType1 = function(mrzText) {
 	MRZ.apply(this, arguments);
@@ -186,6 +198,9 @@ MRZType1.prototype.nameStartOffset = 60;
 MRZType1.prototype.nameEndOffset = 89;
 MRZType1.prototype.documentNumberStartOffset = 5;
 MRZType1.prototype.documentNumberEndOffset = 13;
+MRZType1.prototype.getType = function() {
+	return 1;
+};
 
 var MRZType3 = function(mrzText) {
 	MRZ.apply(this, arguments);
@@ -221,6 +236,9 @@ MRZType3.prototype.nameStartOffset = 5;
 MRZType3.prototype.nameEndOffset = 43;
 MRZType3.prototype.documentNumberStartOffset = 44;
 MRZType3.prototype.documentNumberEndOffset = 52;
+MRZType3.prototype.getType = function() {
+	return 3;
+};
 MRZType3.prototype.getPersonalNumber = function() {
 	return this.text.substring(72, 82).replace(/<+$/, '');
 };
