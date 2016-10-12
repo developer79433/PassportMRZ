@@ -19,13 +19,16 @@
 "use strict";
 
 function parseMRZ() {
-	var mrz, input = $("#mrz");
+	var mrz, input = $("#mrz"), mrzText = input.val().replace(/[ \t\r\n]+/g, '');
 	try {
-		mrz = MRZ.create(input.val());
+		console.log(mrzText);
+		mrz = MRZ.create(mrzText);
 	} catch (e) {
 		console.log(e);
+		$('.message').text(e);
 		return;
 	}
+	$('.message').text("Valid MRZ " + mrz.getTypeFull());
 	$('#documentType').text(mrz.getDocumentType());
 	$('#issuer').text(mrz.getIssuerFull());
 	$('#lastName').text(mrz.getLastName());
