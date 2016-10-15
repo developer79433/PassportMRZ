@@ -42,5 +42,6 @@ function parseMRZ() {
 }
 
 $(function() {
+	MRZ.self_test.runTests();
 	$('#parse').on("click", parseMRZ);
 });

@@ -500,18 +500,19 @@ MRZ.prototype.countryCodeMap = {
 
 var assert = console.assert;
 
-var test_input_type1 =
+MRZ.self_test = {};
+MRZ.self_test.input_type1 =
 	"IDBEL590335801485120100200<<<<" +
 	"8512017F0901015BEL<<<<<<<<<<<7" +
 	"REINARTZ<<ULRIKE<KATIA<E<<<<<<";
-var test_input_type3 =
+MRZ.self_test.input_type3 =
 	"P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<" +
 	"L898902C<3UTO6908061F9406236ZE184226B<<<<<14";
 
-function runTests() {
+MRZ.self_test.runTests = function() {
 	var mrz1, mrz3;
 
-	mrz1 = MRZ.create(test_input_type1);
+	mrz1 = MRZ.create(MRZ.self_test.input_type1);
 	assert(mrz1.getDocumentType() === "ID");
 	assert(mrz1.getIssuer() == "BEL");
 	assert(mrz1.getBirthDate().getDate() === 1);
@@ -526,7 +527,7 @@ function runTests() {
 	assert(mrz1.getOtherNames() === "ULRIKE KATIA E");
 	assert(mrz1.getDocumentNumber() === "590335801");
 
-	mrz3 = MRZ.create(test_input_type3);
+	mrz3 = MRZ.create(MRZ.self_test.input_type3);
 	assert(mrz3.getDocumentType() === "P");
 	assert(mrz3.getIssuer() == "UTO");
 	assert(mrz3.getBirthDate().getDate() == 6);
@@ -541,5 +542,6 @@ function runTests() {
 	assert(mrz3.getOtherNames() === "ANNA MARIA");
 	assert(mrz3.getDocumentNumber() === "L898902C");
 	assert(mrz3.getPersonalNumber() === "ZE184226B");
-}
-// runTests();
+
+	console.log("Self tests successful");
+};
